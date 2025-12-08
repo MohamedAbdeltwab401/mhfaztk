@@ -287,7 +287,7 @@ if (document.location.pathname == "/index.html") {
   let totalIncomes = 0;
   let totalCosts = 0;
 
-  let saving = localStorage.getItem("save");
+  let saving = localStorage.getItem("save") || 0;
 
   lst.forEach((op) => {
     if (op["treat"] === "دخــل") {
@@ -741,4 +741,5 @@ if (document.location.pathname == "/settings.html") {
       window.location.reload();
     })
   })
+
 }
