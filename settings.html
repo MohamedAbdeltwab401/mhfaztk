@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="assets/css/tailwind.min.css">
+
+    <title>محفظتك</title>
+  </head>
+  <body>
+    <header>
+      <nav class="relative">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="items-center flex gap-5">
+              <img src="assets/img/logo.png" alt="Your Company">
+              <span class="font-bold">مــحــفــظــتــك</span>
+            </div>
+            <div class="flex w-full items-center sm:items-stretch sm:justify-center">
+              <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
+                  <a href="index.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900">الصفحة الرئيسية</a>
+                  <a href="input.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900 hover:bg-white/5">إضافة معاملة</a>
+                  <a href="history.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900 hover:bg-white/5">السجل</a>
+                  <a href="settings.html" aria-current="page"  class="rounded-md px-3 py-2 text-sm font-medium text-gray-900 hover:bg-white/5">تخصيص المحفظة</a>
+                </div>
+              </div>
+            </div>
+            <button class="btn-toggle sm:block md:hidden p-3">
+              <span class="toggle"></span>
+              <span class="toggle my-1"></span>
+              <span class="toggle"></span>
+            </button>
+          </div>
+        </div>
+
+        <div id="mobile-menu" hidden>
+          <div class="space-y-1 px-2 pt-2 pb-3">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
+            <a href="index.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600">الصفحة الرئيسية</a>
+            <a href="input.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-white/5 hover:text-white">إضافة معاملة</a>
+            <a href="history.html" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white hover:bg-white/5 hover:text-white">السجل</a>
+            <a href="settings.html" aria-current="page" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-white/5 hover:text-white">تخصيص المحفظة</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container mx-auto">
+      <div class="grid lg:grid-cols-2 lg:p-10 p-5 gap-5">
+        <div class="box py-5 px-5 rounded hvrBox save mx-auto scroll">
+          <h2 class="text-green-600 text-2xl font-extrabold">تعيين الإدخار</h2>
+          <div class="flex justify-between items-center gap-5 mt-5">
+            <input id="save" type="number" placeholder="مبلغ الإدخار" class="rounded-full border-2 flex-1 border-green-500 py-1 px-2 font-bold text-green-600 placeholder-green-600 text-sm w-56">
+            <button id="save" class="sub-btn block rounded-full bg-green-600 text-white py-2 px-5 text-center font-bold hover:bg-green-900">تعيين</button>
+          </div>
+        </div>
+        <div class="box py-5 px-5 rounded hvrBox scroll">
+          <h2 class="text-red-600 text-2xl font-extrabold">ميزانية للصنف</h2>
+          <div class="flex-wrap flex justify-between items-center mt-5 gap-5">
+            <div class="custom-select flex items-center">
+              <div class="selected rounded-full border-2 border-red-600 py-1 px-2 text-right text-red-600 font-extrabold flex items-center"></div>
+                <div class="options">
+                  <div>كل الأصناف</div>
+                </div>
+            </div>
+            <input id="budget" type="number" placeholder="مبلغ الصنف" class="rounded-full border-2 md:m-0 sm:my-4 border-red-500 py-1 px-2 font-bold text-red-600 placeholder-red-600 text-sm">
+            <div><button id="budget" class="sub-btn block rounded-full bg-red-600 text-white py-2 px-5 text-center font-bold hover:bg-green-900">تعيين</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:grid grid-cols-2 lg:px-10 px-5 gap-5">
+        <div class="box budget rounded p-5 scroll">
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

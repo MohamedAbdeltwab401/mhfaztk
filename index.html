@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="assets/css/tailwind.min.css">
+
+    <title>محفظتك</title>
+  </head>
+  <body>
+    <header>
+      <nav class="relative">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="items-center flex gap-5">
+              <img src="assets/img/logo.png" alt="Your Company">
+              <span class="font-bold">مــحــفــظــتــك</span>
+            </div>
+            <div class="flex flex-1 items-center sm:items-stretch sm:justify-center">
+              <div class="hidden sm:ml-6 sm:block">
+                <div class="flex">
+                  <a href="index.html" aria-current="page" class="rounded-md px-3 py-2 text-sm font-medium text-gray">الصفحة الرئيسية</a>
+                  <a href="input.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray hover:bg-white/5">إضافة معاملة</a>
+                  <a href="history.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray hover:bg-white/5">السجل</a>
+                  <a href="settings.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900 hover:bg-white/5">تخصيص المحفظة</a>
+                </div>
+              </div>
+            </div>
+            <button class="btn-toggle sm:block md:hidden p-3">
+              <span class="toggle"></span>
+              <span class="toggle my-1"></span>
+              <span class="toggle"></span>
+            </button>
+          </div>
+        </div>
+
+        <div id="mobile-menu" hidden class="hidden-menu">
+          <div class="space-y-1 px-2 pt-2 pb-3">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
+            <a href="index.html" aria-current="page" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">الصفحة الرئيسية</a>
+            <a href="input.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-white/5 hover:text-white">إضافة الدخل</a>
+            <a href="history.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-white/5 hover:text-white">السجل</a>
+            <a href="settings.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-white/5 hover:text-white">تخصيص المحفظة</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="money-data py-10">
+      <div class="container p-4 mx-auto">
+        <div class="heading scroll mx-auto text-4xl mb-10">
+          <h1 class="text-green-600">بــيــانــات الــرصــيــد</h1>
+          <p class="text-sm text-center text-gray-400 font-extrabold">نظرة سريعة على وضعك المالي</p>
+          <span class="mt-2"></span>
+        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="box hvrBox rounded-xl p-6 scroll flex justify-between items-center">
+          <div>
+            <h2 class="text-green-600 text-xs text font-medium mb-3">إجمالي الدخل</h2>
+            <h3 class="income text-2xl font-semibold text-green-600"></h3>
+          </div>
+          <i class="fa-solid fa-up-long text-green-600 text-xl my-3"></i>
+        </div>
+        <div class="box hvrBox rounded-xl p-6 scroll flex justify-between items-center">
+          <div>
+            <h2 class="text-red-600 text-xs text font-medium mb-3">إجمالي المصروفات</h2>
+            <h3 class="costs text-2xl font-semibold text-red-600"></h3>
+          </div>
+          <i class="fa-solid fa-down-long text-red-600 text-xl my-3"></i>
+        </div>
+        <div class="box hvrBox rounded-xl p-6 scroll flex justify-between items-center">
+          <div>
+            <h2 class="text-blue-400 text-xs text font-medium  mb-3">صافي الرصيد</h2>
+            <h3 class="pure text-2xl font-semibold text-blue-600"></h3>
+          </div>
+          <i class="fa-solid fa-wallet text-blue-600 text-xl my-3"></i>
+        </div>
+        <div class="box hvrBox rounded-xl p-6 scroll flex justify-between items-center">
+          <div>
+            <h2 class="text-green-600 text-xs text font-medium  mb-3">الإدخار</h2>
+            <h3 class="pure text-2xl font-semibold text-green-600"></h3>
+          </div>
+          <i class="fa-solid fa-coins text-green-600 text-xl my-3"></i>
+        </div>
+      </div>
+      <div class="md:grid grid-cols-2 gap-5">
+        <div>
+          <div class="heading scroll mx-auto text-4xl mb-2 mt-20">
+          <h1 class="text-green-600">أحــدث الــمــعــامــلات</h1>
+          <p class="text-sm text-center text-gray-400 font-extrabold">أخــر خــمــس مــعــامــلات</p>
+          <span class="mt-2"></span>
+          </div>
+          <div class="box table-titles rounded-xl mt-10">
+            <p class="table-p text-center py-5 text-red-600 font-bold">لا توجد أية مــعــامــلات</p>
+            
+          </div>
+        </div>
+        <div>
+          <div class="heading scroll mx-auto text-4xl mb-2 mt-20">
+            <h1 class="text-green-600">تحليــل المصروفات</h1>
+            <p class="text-sm text-center text-gray-400 font-extrabold">مخطط لمصاريفك علي الأصنــاف </p>
+            <span class="mt-2"></span>
+          </div>
+          <div class="box scroll chart rounded-xl mt-10 flex justify-center items-center">
+            <canvas id="myChart" class="scroll" style="width:100%; height: 100%;"></canvas>
+            <p class="table-p text-center py-5 text-red-600 font-bold">لا توجد أية تصنيفات خاصة بالمصروفات</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

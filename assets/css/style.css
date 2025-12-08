@@ -1,0 +1,421 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --altMainColor: #3b93ce;
+  --mainColor: #0470b6;
+  --secColor : #d36864;
+  --mainTransition: 0.5s;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  direction: rtl;
+  background-color: #f8fcf8;
+}
+
+header {
+  background-color: #fff;
+}
+
+nav img {
+  width: 100% !important;
+  max-width: none;
+  max-height: 45px;
+}
+nav a {
+  border-radius: 0 !important;
+  margin-left: 20px;
+}
+nav a[aria-current = "page"] {
+  color: #3dbf94;
+}
+nav a:hover {
+  color: #3dbf94;
+}
+nav .btn-toggle .toggle {
+  display: block;
+  width: 20px;
+  height: 3px;
+  background-color: black;
+}
+
+.heading.scroll {
+  transform: translateY(-200px);
+  opacity: 0;
+}
+
+.heading {
+  width: fit-content;
+  transform: translateY(0px);
+  opacity: 1;
+  transition: var(--mainTransition);
+}
+
+h2 {
+  color: #eee;
+}
+
+h1 {
+  font-weight: 900 !important;
+}
+
+.heading > span {
+  display: block;
+  width: 25%;
+  height: 4px;
+  border-radius: 20px;
+  margin-inline: auto;
+  background-color: #b0f0db;
+}
+
+.hidden-menu {
+  opacity: 0;
+  transform: translateX(50%);
+  transition: var(--mainTransition);
+}
+.appear-menu {
+  opacity: 1;
+  transform: translateX(0);
+  transition: var(--mainTransition);
+}
+
+h3 {
+  span {
+    font-size: 20px;
+    font-weight: 400;
+  }
+}
+
+.box {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 8px #eee;
+  position: relative;
+  transition: var(--mainTransition);
+}
+
+.hvrBox {
+  box-shadow: 0 8px 8px rgb(189, 240, 224);
+}
+
+.hvrBox:nth-child(2) {
+  box-shadow: 0 8px 8px rgb(226, 173, 173);
+}
+.hvrBox:nth-child(3) {
+  box-shadow: 0 8px 8px #b0d7f0;
+}
+
+.hvrBox::after {
+  content: "";
+  width: 100px;
+  height: 10px;
+  background-color: #3b93ce;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 0.75rem;
+}
+.hvrBox:first-child::before,
+.hvrBox:first-child::after {
+  background-color: rgba(5,150,105);
+}
+.hvrBox:nth-child(2)::before,
+.hvrBox:nth-child(2)::after {
+  background-color: rgba(220, 38, 38);
+}
+.hvrBox:nth-child(4)::before,
+.hvrBox:nth-child(4)::after {
+  background-color: rgba(5,150,105);
+}
+
+.hvrBox::before {
+  content: "";
+  
+  width: 0;
+  height: 0;
+  
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  background-color: var(--altMainColor);
+  border-radius: 12px;
+
+  transition: var(--mainTransition);
+}
+
+.hvrBox:hover {
+  transform: translateY(-10px);
+}
+
+.hvrBox:hover::before {
+  width: calc(100% - 20px);
+  height: 3px;
+}
+
+.scroll {
+  transform: translateY(200px);
+  opacity: 0;
+}
+
+.bdr-btm {
+  border-bottom: 1px solid #b0f0db;
+}
+.amont {
+  color: var(--secColor);
+}
+.input {
+  color: rgba(5,150,105);
+  font-weight: bold;
+}
+.output {
+  color: var(--secColor) !important;
+  font-weight: bold;
+}
+.btn {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+ul {
+  flex-wrap: wrap;
+  padding-inline: 10px 20px !important;
+  transition: var(--mainTransition);
+}
+
+ul:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+ul li:first-child {
+  width: 25px;
+}
+ul li:nth-child(2) {
+  width: calc(70% - 75px);
+}
+ul li:nth-child(3) {
+  flex: 1;
+}
+ul li:last-child {
+  width: 50px;
+}
+
+ul.scroll {
+  transform: translateX(200px);
+  opacity: 0;
+}
+
+#myChart.scroll {
+  display: none !important;
+}
+
+button:hover {
+  transition: var(--mainTransition);
+}
+
+.cat {
+  transition: var(--mainTransition);
+}
+
+
+.cat-rec {
+  display: inline-block;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 30px;
+  font-size: 12px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: var(--mainTransition);
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #b0f0db !important;
+}
+
+input::placeholder {
+  transition: var(--mainTransition);
+}
+
+input:focus::placeholder {
+  color: white;
+}
+
+input[type="date"] {
+  text-align: right;
+  user-select: none;
+  transition: var(--mainTransition);
+}
+
+.custom-select {
+  width: 220px;
+  position: relative;
+}
+
+.selected {
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  background-color: #fff;
+  transition: var(--mainTransition);
+}
+
+input[type="date"]:focus {
+  border : 2px solid #3dbf94;
+  transition: var(--mainTransition);
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  z-index: 1000;
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin-top: 4px;
+  overflow-y: scroll;
+  height: 200px;
+}
+
+.options div {
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.options div:hover {
+  background: #3dbf94;
+  color: #fff;
+}
+
+
+.pop-box {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  z-index: 10000;
+  transition: none;
+}
+
+ul li i {
+  cursor: pointer;
+}
+
+.search-box > * {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  flex-grow: 1;
+}
+.search-box input {
+    flex: 1;
+  }
+
+  .save {
+    background-color: #e4f1ed34;
+  }
+
+  .save + div {
+    background-color: #f0c8c834;
+    width: 100%;
+  }
+
+  @media (max-width : 767px) {
+    .save + div > div > div:first-child,
+    .save + div div input {
+      width: 70%;
+  }
+  }
+
+  .save:hover,
+  .save + div:hover {
+    transform: none;
+  }
+
+  .save + div input:focus {
+    border-color: #f0c8c8 !important;
+  }
+
+  .save + div .options div:hover {
+  background: #d32525;
+  color: #fff;
+}
+
+.bar-progress {
+  width: 100%;
+    display: block;
+    background-color: #eee;
+    height: 6px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bar-progress span {
+  display: block;
+  height: 6px;
+  border-radius: 20px;
+  background-color: #d32525;
+  width: var(--barWidth-1);
+  transition: var(--mainTransition);
+}
+
+.bar-progress .scroll {
+  width: 0px !important;
+  transform: none;
+  opacity: 1;
+}
+
+
+  @media (max-width : 991px) {
+    h2 {
+      font-size: 20px !important;
+    }
+    .search-box > * {
+      width: 40%;
+      flex-grow: 1;
+    }
+  }
+
+  @media (max-width : 767px) {
+  ul {
+    padding: 0 !important;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  li {
+    font-size: 12px;
+  }
+  .search-box .btn {
+    margin-top : 20px;
+  }
+  .search-box > * {
+    width: 80%;
+    flex-grow: 1;
+  }
+}
+
+.close-btn {
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  font-weight: 700;
+}
