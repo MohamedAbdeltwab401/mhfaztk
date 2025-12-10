@@ -430,6 +430,16 @@ if (document.location.pathname == "/input.html") {
   let cat = document.querySelector("div.cat");
   let catRec = document.querySelectorAll(".cat-rec");
 
+  let categories = [];
+
+  catRec.forEach((category) => {
+    if (category.textContent != "راتب") {
+      categories.push(category.textContent);
+    }
+  })
+
+  localStorage.setItem("categories", JSON.stringify(categories));
+
   let checkIcons = document.querySelectorAll(".check");
 
 
@@ -535,23 +545,21 @@ let dateIpts = document.querySelectorAll("input[type = 'date']");
     let optionsLst = [];
 
     function pushElement(treat) {
-      if (!(optionsLst.includes(treat["transaction"]["category"]))) {
-        optionsLst.push(treat["transaction"]["category"]);
+        optionsLst.push(treat);
         let optEle = document.createElement("div");
-        optEle.textContent = treat["transaction"]["category"];
+        optEle.textContent = treat;
         options.append(optEle);
-      }
     }
 
-    lst.forEach((treat) => {
-      if (document.location.pathname == "/settings.html") {
-        if (treat["treat"] == "صــرف") {
-          pushElement(treat);
-        }
-      } else {
-        pushElement(treat);
-      }
+    let categories = JSON.parse(localStorage.getItem("categories"));
+
+    categories.forEach((treat) => {
+      pushElement(treat);
     })
+
+    if (document.location.pathname == "/history.html") {
+      pushElement("راتب");
+    }
 
     let selFlag = false;
 
@@ -611,6 +619,7 @@ if (document.location.pathname == "/history.html") {
   btn.onclick = () => {
     let firstDate = new Date(dateIpts[0].value);
     let endDate = new Date(dateIpts[1].value);
+    const selected = document.querySelector(".selected");
     let sel = selected.textContent;
 
     let boxTable = document.querySelector(".heading + .box");
@@ -724,16 +733,30 @@ if (document.location.pathname == "/settings.html") {
             }
           })
         } else {
-          let budgetItem = {
-          "category": "",
-          "amount": ""
-        }
+          if (selected.textContent == "كل الأصناف") {
+            let cat = JSON.parse(localStorage.getItem("categories"));
 
-        budgetItem["category"] = selected.textContent;
-        budgetItem["amount"] = budget.value;
+            budgetLst = [];
 
-        budgetLst.push(budgetItem);
+            cat.forEach((category) => {
+              let budgetItem = {
+              "category": "",
+              "amount": ""
+              }
+              budgetItem["category"] = category;
+              budgetItem["amount"] = budget.value;
+              budgetLst.push(budgetItem);
+            })
+          } else {
+            let budgetItem = {
+            "category": "",
+            "amount": ""
+            }
+            budgetItem["category"] = selected.textContent;
+            budgetItem["amount"] = budget.value;
 
+            budgetLst.push(budgetItem);
+          }
 
       }
       localStorage.setItem("budget", JSON.stringify(budgetLst));
@@ -741,5 +764,4 @@ if (document.location.pathname == "/settings.html") {
       window.location.reload();
     })
   })
-
 }
