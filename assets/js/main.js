@@ -208,7 +208,7 @@ function addElement(i, tableTitles) {
     })
 
       let inputs = document.querySelectorAll(".pop-box input");
-    let activeBtn = document.querySelector(".btn.active");
+      let activeBtn = document.querySelector(".btn.active");
     
     
     
@@ -227,7 +227,6 @@ function addElement(i, tableTitles) {
       activeBtn = activeBtn.previousElementSibling;
       activeBtn.classList.add("active", "bg-green-600", "text-white");
       activeBtn.classList.remove("text-green-400");
-      console.log(activeBtn)
     }
     }
 
@@ -241,6 +240,8 @@ function addElement(i, tableTitles) {
       inputs.forEach((input) => {
         lst[idx]["transaction"][input.id] = input.value;
       });
+      activeBtn = document.querySelector(".btn.active");
+      lst[idx]["treat"] = activeBtn.textContent;
 
       // after add content of popBox
       closePopBox();
