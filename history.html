@@ -28,14 +28,14 @@
               <img src="assets/img/logo.png" alt="Your Company">
               <span class="font-bold">مــحــفــظــتــك</span>
             </div>
-            <div class="flex flex-1 items-center sm:items-stretch sm:justify-center">
+            <div class="flex w-full items-center sm:items-stretch sm:justify-center">
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
                   <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
                   <a href="index.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900">الصفحة الرئيسية</a>
                   <a href="input.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900 hover:bg-white/5">إضافة معاملة</a>
-                  <a href="history.html" aria-current="page" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900 hover:bg-white/5">السجل</a>
-                  <a href="settings.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900 hover:bg-white/5">تخصيص المحفظة</a>
+                  <a href="history.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900 hover:bg-white/5">السجل</a>
+                  <a href="settings.html" aria-current="page"  class="rounded-md px-3 py-2 text-sm font-medium text-gray-900 hover:bg-white/5">تخصيص المحفظة</a>
                 </div>
               </div>
             </div>
@@ -52,68 +52,40 @@
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
             <a href="index.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600">الصفحة الرئيسية</a>
             <a href="input.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-white/5 hover:text-white">إضافة معاملة</a>
-            <a href="history.html" aria-current="page" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white hover:bg-white/5 hover:text-white">السجل</a>
-            <a href="settings.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-white/5 hover:text-white">تخصيص المحفظة</a>
+            <a href="history.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-white/5 hover:text-white">السجل</a>
+            <a href="settings.html" aria-current="page" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white hover:bg-white/5 hover:text-white">تخصيص المحفظة</a>
           </div>
         </div>
       </nav>
     </header>
 
-    <div class="container mx-auto overflow-hidden">
-
-      <div class="search-box py-5 px-10 items-center flex flex-wrap gap-10 mt-2 mx-auto justify-center">
-        <div class="start-date">
-          <label for="start-date">من</label>
-          <input class="pl-10 pr-5 py-1 border-2 border-green-400 rounded-2xl" type="date" id="start-date">
-        </div>
-        <div class="end-date my-5">
-          <label for="end-date">الي</label>
-          <input class="pl-10 pr-5 py-1 border-2 border-green-400 rounded-2xl" type="date" id="end-date">
-        </div>
-        <div class="custom-select">
-          <div class="selected rounded-2xl border-2 border-green-400 py-1 px-5"></div>
-          <div class="options">
-            <div>كل الأصناف</div>
+    <div class="container mx-auto">
+      <div class="grid md:grid-cols-2 grid-cols-1 lg:p-10 p-5 gap-5">
+        <div class="box py-5 px-5 rounded hvrBox save mx-auto scroll">
+          <h2 class="text-green-600 text-2xl font-extrabold">تعيين الإدخار</h2>
+          <div class="flex justify-between items-center gap-5 mt-5">
+            <input id="save" type="number" placeholder="مبلغ الإدخار" class="rounded-full border-2 flex-1 border-green-500 py-1 px-2 font-bold text-green-600 placeholder-green-600 text-sm w-56">
+            <button id="save" class="sub-btn block rounded-full bg-green-600 text-white py-2 px-5 text-center font-bold hover:bg-green-900">تعيين</button>
           </div>
         </div>
-
-        <button class="btn rounded-full text-white py-2 px-10 text-center font-bold bg-green-400 hover:bg-green-600">بحث</button>
+        <div class="box py-5 px-5 rounded hvrBox scroll">
+          <h2 class="text-red-600 text-2xl font-extrabold">ميزانية للصنف</h2>
+          <div class="flex-wrap flex justify-between items-center mt-5 gap-5">
+            <div class="custom-select flex items-center">
+              <div class="selected rounded-full border-2 border-red-600 py-1 px-2 text-right text-red-600 font-extrabold flex items-center"></div>
+                <div class="options">
+                  <div>كل الأصناف</div>
+                </div>
+            </div>
+            <input id="budget" type="number" placeholder="مبلغ الصنف" class="rounded-full border-2 md:m-0 sm:my-4 border-red-500 py-1 px-2 font-bold text-red-600 placeholder-red-600 text-sm">
+            <div><button id="budget" class="sub-btn block rounded-full bg-red-600 text-white py-2 px-5 text-center font-bold hover:bg-green-900">تعيين</button></div>
+          </div>
+        </div>
       </div>
 
-      <div class="py-5 px-10 max-w-full mx-auto rounded-xl shadow-none relative">
-        <div class="heading mx-auto text-4xl mb-10">
-          <h1 class="text-green-600">ســجــل الــمــعــامــلات</h1>
-          <p class="text-sm text-center text-gray-400 font-extrabold">عرض كل معاملاتك المالية</p>
-          <span class="mt-5"></span>
+      <div class="lg:grid grid-cols-2 lg:px-10 px-5 gap-5">
+        <div class="box budget rounded p-5 scroll">
         </div>
-
-        <div class="box pop-box px-10 py-5 w-96  mx-auto rounded-xl">
-          <button class="close-btn rounded-full bg-red-600 text-white">x</button>
-          <div class="heading mx-auto text-4xl mb-10">
-            <h1>تــعــديــل الــعــمــلــيــة</h1>
-            <p class="text-xl text-center mt-2 text-gray-400"></p>
-            <span class="mt-5"></span>
-          </div>
-
-          <div class="btns flex justify-center gap-5">
-            <button class="btn active w-96 py-2 border rounded-full bg-green-600 text-white hover:text-white hover:bg-green-600">دخــل</button>
-            <button class="btn w-96 py-2 border rounded-full text-red-400 hover:bg-red-600 hover:text-white">صــرف</button>
-          </div>
-
-          <input class="block rounded-full border w-full my-7 py-1 px-5" type="text" placeholder="الصنف" id="category" required>
-          <input class="block rounded-full border w-full my-7 py-1 px-5" type="date" placeholder="التاريخ" id="date" required>
-          <input class="block rounded-full border w-full my-7 py-1 px-5" type="text" placeholder="المبلغ" id="amount" required>
-          <input class="block rounded-full border w-full my-7 py-1 px-5" type="text" placeholder="الوصف" id="descreption">
-
-          <button class="sub-btn block rounded-full bg-green-600 text-white py-2 px-5 text-center font-bold mx-auto hover:bg-green-900">حــفــظ الــعــمــلــيــة</button>
-
-          <p class="msg hidden text-gray-300">تم حفظ العملية</p>
-
-      </div>
-
-        <div class="box box-table rounded-xl">
-        <p class="table-p text-center py-5 text-red-600 font-bold">لا توجد أية مــعــامــلات</p>
-        
       </div>
     </div>
 
